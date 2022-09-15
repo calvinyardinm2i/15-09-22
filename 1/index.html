@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>premiers essais JS</title>
+</head>
+<body>
+
+	<h1>Bonjour je m'apppelle <span class="prenom"></span> <span class="nom"></span> , j'ai <span class="age"></span> ans.</h1>
+	<h1>L'année prochaine j'aurais <span class="agePlusOne"></span> ans</h1>
+	<h1 class="voisin"></h1>
+
+	<script type="text/javascript">
+		let nom = prompt("Saisissez votre nom")
+		let prenom = prompt("Saisissez votre prénom")
+		let age = parseInt(prompt("Saisissez votre age"))
+		let nomVoisin = prompt("Saisissez le nom de votre voisin(e)")
+		let prenomVoisin = prompt("Saisissez le prénom de votre voisin(e)")
+		let sexeVoisin = prompt("Saisissez le sexe de votre voisin(e) [H/F]")
+
+		document.querySelector(".nom").innerText = nom
+		document.querySelector(".prenom").innerText = prenom
+		document.querySelector(".age").innerText = age
+		document.querySelector(".agePlusOne").innerText = age + 1
+		document.querySelector(".voisin").innerText = sexeVoisin.toLowerCase() == "h" ? `Mon voisin s'appelle ${prenomVoisin} ${nomVoisin}` : `Ma voisine s'appelle ${prenomVoisin} ${nomVoisin}`
+	</script>
+
+</body>
+</html>

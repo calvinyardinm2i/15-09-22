@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		const burger = ["pain", "chedar", "steak", "cornichon", "ketchup", "salade", "tomate", "oignon"]
+
+		let burgers = {
+			vegetarien: [],
+			vegan: [],
+			carnivore: [],
+			personalise: []
+		}
+
+		for (data of [[burgers.vegetarien, ["steak"]], [burgers.vegan, ["steak", "chedar"]], [burgers.carnivore, ["cornichon", "salade", "tomate", "oignon"]]])
+		{
+			for (ingredient of burger)
+			{
+				if (data[1].indexOf(ingredient) < 0)
+				{
+					data[0].push(ingredient)
+				}
+			}
+		}
+
+		typeBurger = prompt("Saisissez le type de burger que vous souhaitez, vous avez le choix parmis cette liste : vegetarien, vegan, carnivore, personalise")
+
+		if (typeBurger == "personalise")
+		{
+			for (ingredient of burger)
+			{
+				if (confirm(`Ajouter un(e)/des ${ingredient}(s) ?`))
+				{
+					burgers.personalise.push(ingredient)
+				}
+			}
+		}
+
+		alert(`Votre burger commandé est le suivant : ${burgers[typeBurger]}, bon appétit !`)
+	</script>
+
+</body>
+</html>

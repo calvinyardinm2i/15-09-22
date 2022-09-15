@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<div class="container">
+		<div class="signalisation">
+			<div class="signal">
+				<div class="light red"></div>
+				<div class="light orange"></div>
+				<div class="light green"></div>
+				<div class="breaked"></div>
+			</div>
+			<div class="bar"></div>
+		</div>
+	</div>
+
+	<h1 class="message"></h1>
+
+	<script type="text/javascript">
+		message = document.querySelector("h1.message")
+
+		document.querySelectorAll(".signalisation .signal > *").forEach(el =>
+			el.addEventListener("click", function()
+			{
+				for (el of document.querySelectorAll(".signalisation .signal > *"))
+				{
+					el.classList.remove("active")
+					el.classList.remove("blinks")
+				}
+
+				if (this.classList.contains("breaked"))
+				{
+					message.innerText = "Le feu est en panne"
+					document.querySelector(".signalisation .signal .light.orange").classList.toggle("blinks")
+				}
+
+				else if (this.classList.contains("green"))
+				{
+					message.innerText = "Tu peux passer"
+				}
+
+				else if (this.classList.contains("orange"))
+				{
+					message.innerText = "évite de passer"
+				}
+
+				else if (this.classList.contains("red"))
+				{
+					message.innerText = "tu ne peux pas passer"
+				}
+
+				this.classList.toggle("active")
+			})
+		)
+	</script>
+
+</body>
+</html>
